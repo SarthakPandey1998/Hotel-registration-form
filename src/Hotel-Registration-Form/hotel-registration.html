@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hotel Registration Form</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet"  href="./hotel-registration.css"/>
+  <script defer src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  <script defer src="./hotel-registration.js"></script>
+  <style>
+
+  </style>
+</head>
+
+<body class="container-fluid p-2">
+  <div class="imgContainer">
+  </div>
+  <h6 class="border border-2 text-center fs-2 p-4 m-0">Hotel Registration Form</h6>
+  <div class="accordion" id="accordion1">
+    <div class="accordion-item">
+      <div class="accordion-header text-center">
+        <button data-bs-target="#item1" data-bs-toggle="collapse"
+          class="accordion-button rounded-0 text-white bg-dark d-block text-center">
+          Customer Info
+        </button>
+      </div>
+      <div id="item1" class="accordion-collapse collapse" data-bs-parent="#accordion1">
+        <div class="accordion-body">
+          <div class="row">
+            <div class="col-6">
+              <label for="customerName" class="form-label d-block my-3">Customer Name</label>
+              <label for="checkInDate" class="form-label d-block my-3">Check in Date</label>
+              <label for="noOfDays" class="form-label d-block my-3">Total No. of Days</label>
+              <label for="noOfpersons" class="form-label d-block my-3">Total No. of Persons</label>
+            </div>
+            <div class="col-6">
+              <input type="text" class="form-control w-50 my-1" id="customerName" />
+              <input type="date" class="form-control w-50 my-1" id="checkInDate" />
+              <input type="number" class="form-control w-50 my-1" id="noOfDays" />
+              <input type="number" class="form-control w-50 my-1" id="noOfpersons" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header text-center">
+        <button data-bs-target="#item2" data-bs-toggle="collapse"
+          class="accordion-button rounded-0 text-white bg-dark d-block text-center">
+          Select Room Type
+        </button>
+      </div>
+      <div id="item2" class="accordion-collapse collapse" data-bs-parent="#accordion1">
+        <div class="accordion-body">
+          <div class="roomtype">
+            <div>
+             <div class="delux-room" id="imgDelux">
+             </div>
+              <div class="text-center mt-2">
+                <input type="radio" class="form-check-input" id="delux-room" name="roomType" value="2500" />
+                <label for="delux-room" class="form-check-label fw-bold">Delux Room</label>
+              </div>
+            </div>
+            <div>
+              <div class="suite-room">
+              </div>
+              <div class="text-center mt-2">
+                <input type="radio" class="form-check-input" id="suite-room" name="roomType" value="4000" />
+                <label for="suite-room" class="form-check-label fw-bold">Suite Room</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header text-center">
+        <button data-bs-target="#item3" data-bs-toggle="collapse"
+          class="accordion-button rounded-0 text-white bg-dark d-block text-center">
+          Select Amenities
+        </button>
+      </div>
+      <div id="item3" class="accordion-collapse collapse" data-bs-parent="#accordion1">
+        <div class="accordion-body">
+          <div class="amenitiestype">
+            <div class="ac-container">
+              <img src="../../public/images/ac.jpeg" id="imgDelux" width="200" height="154" />
+              <div class="text-center ac-checkbox">
+                <input type="checkbox" class="form-check-input" id="ac" value="1000" />
+                <label for="ac" class="form-check-label fw-bold">A/C</label>
+              </div>
+            </div>
+            <div>
+              <img src="../../public/images/locker.jpeg" id="imgSuite" width="200" height="150" />
+              <div class="text-center mt-1">
+                <input type="checkbox" class="form-check-input" id="locker" value="300" />
+                <label for="locker" class="form-check-label fw-bold">Locker</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header text-center">
+        <button data-bs-target="#item4" data-bs-toggle="collapse"
+          class="accordion-button rounded-0 text-white bg-dark d-block text-center">
+          Advance Amount
+        </button>
+      </div>
+      <div id="item4" class="accordion-collapse collapse" data-bs-parent="#accordion1">
+        <div class="accordion-body">
+          <div class="d-flex justify-content-center">
+            <label for="advance-amount" class="form-label mt-2">Advance Amount</label>
+            <input type="number" class="form-control w-25 ms-5" id="advance-amount" onkeyup="handleAdvanceAmount()" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center my-4">
+      <button class="btn btn-dark px-5" data-bs-toggle="modal" data-bs-target="#register" disabled id="registerBtn"
+        onclick="handleRegister()">
+        Register
+      </button>
+      <div class="modal fade" id="register">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header bg-white bg-gradient">
+              <button class="btn btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body bg-secondary text-white-50">
+              <div class="row">
+                <div class="col">
+                  <div class="row">
+                    <div class="col-7">
+                      <div class="fw-bold">Customer Name :</div>
+                    </div>
+                    <div class="col-5">
+                      <div id="customer-name"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-7">
+                      <div class="fw-bold">Check in Date :</div>
+                    </div>
+                    <div class="col-5">
+                      <div id="check-in-date"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-7">
+                      <div class="fw-bold">Total No. of Days :</div>
+                    </div>
+                    <div class="col-5">
+                      <div id="days"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-7">
+                      <div class="fw-bold">Total No. of Persons :</div>
+                    </div>
+                    <div class="col-5">
+                      <div id="persons"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-7">
+                      <div class="fw-bold">Room Type :</div>
+                    </div>
+                    <div class="col-5">
+                      <div id="room-type"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-7">
+                      <div class="fw-bold">Amenities :</div>
+                    </div>
+                    <div class="col-5">
+                      <div id="amenities"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-7">
+                      <div class="fw-bold">Total :</div>
+                    </div>
+                    <div class="col-5">
+                      <div id="total"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-7">
+                      <div class="fw-bold">Advance Amount :</div>
+                    </div>
+                    <div class="col-5">
+                      <div id="advance"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer bg-white">
+              <div class="row">
+                <div class="col d-flex">
+                  <div class="fw-bold">Balance Amount : &nbsp;</div>
+                  <div id="balance" class="text-secondary"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="toast-container">
+        <div class="toast fade" role="alert" aria-live="assertive" aria-atomic="true" id="toast">
+          <div class="toast-body">
+            Please Enter Advance Amount
+            <div class="mt-2 pt-2 border-top">
+              <button type="button" class="btn btn-primary btn-sm" >Enter</button>
+              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+</body>
+
+</html>

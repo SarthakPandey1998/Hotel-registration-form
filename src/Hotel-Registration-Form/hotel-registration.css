@@ -1,0 +1,60 @@
+.imgContainer{
+    width: 100vw;
+    height: 60vh;
+    background-image: url("../../public/images/pool.png");
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;     
+}
+
+.roomtype{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.delux-room{
+    width: 150px;
+    height: 120px;
+    background-image: url("../../public/images/delux.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.suite-room{
+    width: 150px;
+    height: 120px;
+    background-image: url("../../public/images/suite.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.amenitiestype{
+    display: flex;
+    justify-content: space-around;
+}
+
+@media only screen and (max-width:400px){
+    .roomtype{
+        flex-direction: column;
+        align-items: center;
+        row-gap: 24px;
+        
+    }
+}
+
+@media only screen and (max-width:450px){
+    .amenitiestype{
+        flex-direction: column;
+        align-items: center;
+    }
+    .ac-container{
+        position: relative;
+    }
+    .ac-checkbox{
+        position: absolute;
+        top: 110px;
+        left: 75px;
+    }
+}
